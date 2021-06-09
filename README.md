@@ -1,12 +1,100 @@
 # Our Title here
 
-
+## Discussion Points
+- Welche Hierarchien haben wir? Sollen wir nach Requirements oder nach Plattformen strukturieren?
 
 ## Evaluation
 
-### Amazon Greengrass
+### Microsoft Azure
+From the Microsoft Azure, we considered the Azure Digital Twins Service, the Azure IoT-Hub, and the Azure Time Series Insights Service.
+#### Compatibility
+
+##### Platform Interoperability 
+The Azure DT Platform offers a REST-Interface
+##### System Interoperability 
+Enabled via the IoT-Hub, and specified via so-called Relationships between different Digital Twins
+##### Real-Time Busses 
+As to the best of our knowledge, there is no support for real-time busses in Azure.
+
+##### Automation Protocols
+Based on the official documentation, the Azure IoT-Hub currently supports the following communication protocols:
+
+#### Portability
+
+##### CI/CD
+
+#### Maintainability
+
+##### Modifiability 
+
+##### Reusability
+
+#### Performance
+
+##### Time Behavior
+
+##### Functional Suitability
 
 #### Compatibility
+
+##### Platform Interoperability 
+
+##### Bi-Directional Synchronization 
+
+##### Verify & Validate
+
+##### Convergence
+
+#### Usability
+
+##### Modeling Support 
+Both Azure and Eclipse Vorto provide a structured meta-model (DTDL\footnote{\url{https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md}} and vortolang\footnote{\url{https://github.com/eclipse/vorto/blob/development/docs/vortolang-1.0.md}} that can be instantiated with specific DT models using json. Both also provide modeling tools (ADT-Explorer\footnote{\url{https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer}} and Vorto Repository\footnote{\url{https://vorto.eclipseprojects.io/}}
+
+##### Visualization of DTs
+https://github.com/eclipse/vorto/blob/master/docs/tutorials/create_webapp_dashboard.md
+### Eclipse 
+For the Eclipse platform, we analyzed the Hono, Ditto and Vorto tools that all claim to provide solutions to cope with Digital Twins.
+#### Compatibility
+
+##### Platform Interoperability 
+Main functionality of Ditto is to provide a RESTful Interface to enable platform interopability. Therefore, this requirement is fulfilled by this platform.
+##### System Interoperability 
+In the officiall documentation of the structure that is used behind the platform, there is no support for interaction between different Digital Twins. However, this could still be implemented, as Hono offers different. For the authors, this leads to the conclusion that system interopability is partially fulfilled by the platform.
+##### Real-Time Busses 
+As to the best of our knowledge, there is no support for real-time busses in the examined Eclipse tools.
+
+##### Automation Protocols
+Based on the official documentation, the Azure IoT-Hub currently supports the following communication protocols:
+
+#### Portability
+
+##### CI/CD
+
+#### Maintainability
+
+##### Modifiability 
+
+##### Reusability
+
+#### Performance
+
+##### Time Behavior
+
+##### Functional Suitability
+
+#### Compatibility
+
+##### Bi-Directional Synchronization 
+
+##### Verify & Validate
+
+##### Convergence
+
+#### Usability
+
+##### Modeling Support 
+
+### Amazon Greengrass
 
 ##### Platform Interoperability 
 
