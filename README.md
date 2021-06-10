@@ -17,7 +17,10 @@ Enabled via the IoT-Hub, and specified via so-called Relationships between diffe
 As to the best of our knowledge, there is no support for real-time busses in Azure.
 
 ##### Automation Protocols
-Based on the official documentation, the Azure IoT-Hub currently supports the following communication protocols:
+Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-protocols), the Azure IoT-Hub currently supports the following communication protocols:
+- MQTT
+- AMQP
+- HTTPS
 
 #### Portability
 
@@ -28,6 +31,7 @@ Based on the official documentation, the Azure IoT-Hub currently supports the fo
 ##### Modifiability 
 
 ##### Reusability
+As the Digital Twin Definition Language (DTDL) used by Microsoft Azure Digital Twins to describe components is [JSON-LD-based](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-models), this allows easy reusability using copy and paste of json properties.
 
 #### Performance
 
@@ -64,18 +68,23 @@ In the officiall documentation of the structure that is used behind the platform
 As to the best of our knowledge, there is no support for real-time busses in the examined Eclipse tools.
 
 ##### Automation Protocols
-Based on the official documentation, the Azure IoT-Hub currently supports the following communication protocols:
+Based on the Eclipse Hono Website, there is a out of the box support for the following protocols to send data from a device to the platform:
+- HTTP
+- AMQP
+- MQTT
+- CoAP
 
 #### Portability
 
 ##### CI/CD
+As to the best of our knowledge, there is no out of the box support for CI or CD by Eclipse Hono, Ditto or Vorto.
 
 #### Maintainability
 
 ##### Modifiability 
-
+The[ REST API offered by Eclipse Ditto](https://www.eclipse.org/ditto/http-api-doc.html) allows the modification of the system and its components during runtime.
 ##### Reusability
-
+The [Vorto Repository] allows the persistance, publication and re-using of existing models that describe hardware components.
 #### Performance
 
 ##### Time Behavior
