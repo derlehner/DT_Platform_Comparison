@@ -26,6 +26,8 @@ Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot
 
 ##### CI/CD
 
+As to the best of our knowledge, there is yet no support for either CI or CD by any of the components of the azure digital twin platform.
+
 #### Maintainability
 
 ##### Modifiability 
