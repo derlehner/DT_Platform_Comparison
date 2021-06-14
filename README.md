@@ -122,22 +122,30 @@ The [Vorto Repository] allows the persistance, publication and re-using of exist
 
 ### Amazon Greengrass
 
+#### Compatibility
+
 ##### Platform Interoperability 
 
 AWS IoT Greengrass provides [Greengrass Connectors](https://docs.aws.amazon.com/greengrass/v1/developerguide/connectors.html) to connect to other services, protocols, local infrastructure, AWS, and even third-party cloud services. Thus, we consider this requirement as fulfilled.
 
 ##### System Interoperability 
 
-Since communication in AWS IoT Greengrass is mostly handled via MQTT it is possible for digital twins to interact with each other via this protocol. Communication is possible, both locally between digital twins of devices, and via the AWS IoT Core, running in the cloud (see [Interacting with devices in an IoT Greengrass Group](https://docs.aws.amazon.com/greengrass/v1/developerguide/module4.html)). Via [connectors](https://docs.aws.amazon.com/greengrass/v1/developerguide/connectors.html) it is also possible to interact with digital twins outside of AWS.  Thus, system interoperability is fulfilled.
-
-##### Real-Time Busses 
+Since communication in AWS IoT Greengrass is mostly handled via MQTT it is possible for digital twins to interact with each other via this protocol. Communication is possible, both locally between digital twins of devices, and via the AWS IoT Core, running in the cloud (see [Interacting with devices in an IoT Greengrass Group](https://docs.aws.amazon.com/greengrass/v1/developerguide/module4.html)). Via [connectors](https://docs.aws.amazon.com/greengrass/v1/developerguide/connectors.html) it is also possible to interact with digital twins outside of AWS.  Despite the connection is automatically established, the communication itself has to be defined manually. Thus, we consider this requirement as partially fulfilled.
 
 ##### Automation Protocols 
+
+https://docs.aws.amazon.com/iot-sitewise/latest/userguide/industrial-data-ingestion.html
+
+AWS IoT SiteWise consumes industrial data and matches data to assets that represent your industrial operations. AWS IoT SiteWise supports linking with OPC-UA, Modbus TCP, and Ethernet/IP protocols.
 
 ### Security
 #### Connection Security
 
+https://docs.aws.amazon.com/greengrass/v1/developerguide/gg-sec.html
+
 #### Data Security
+
+https://docs.aws.amazon.com/greengrass/v1/developerguide/data-encryption.html
 
 #### Portability
 
@@ -155,7 +163,7 @@ Hence, we consider the CI/CD requirement as fulfilled.
 
 ##### Modifiability 
 
-In AWS IoT Greengrass Developers can change or replace deployed services, or functionalities via [IoT Greengrass Groups](https://docs.aws.amazon.com/greengrass/v1/developerguide/deployments.html). They enable to organize the deployment of your digital twin instance. There you can assign the different entities of AWS IoT Greengrass, among others, devices, lambda functions, connectors, subscriptions, to a group, organize, control, and define dependencies and relationships between them. Furthermore, it is possible to exchange and redeploy all entities. This can be done manually via the AWS console or terminal, or via a CI/CD pipeline.
+In AWS IoT Greengrass Developers can change or replace deployed services, or functionalities via [IoT Greengrass Groups](https://docs.aws.amazon.com/greengrass/v1/developerguide/deployments.html). They enable to organize the deployment of your digital twin instance. There you can assign the different entities of AWS IoT Greengrass, among others, devices, lambda functions, connectors, subscriptions, to a group, organize, control, and define dependencies and relationships between them. Furthermore, it is possible to exchange and redeploy all entities. This can be done manually via the AWS console or terminal, or via a CI/CD pipeline. However, this is not possible during runtime. Hence, this requirement is only partially fulfilled.
 
 ##### Reusability
 
