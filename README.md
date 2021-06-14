@@ -13,8 +13,6 @@ From the Microsoft Azure, we considered the Azure Digital Twins Service, the Azu
 The Azure DT Platform offers a REST-Interface
 ##### System Interoperability 
 Enabled via the IoT-Hub, and specified via so-called Relationships between different Digital Twins
-##### Real-Time Busses 
-As to the best of our knowledge, there is no support for real-time busses in Azure.
 
 ##### Automation Protocols
 Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-protocols), the Azure IoT-Hub currently supports the following communication protocols:
@@ -46,8 +44,8 @@ As the Digital Twin Definition Language (DTDL) used by Microsoft Azure Digital T
 
 #### Performance
 
-##### Time Behavior
-
+##### Real-Time Behavior
+https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot
 
 ##### Functional Suitability
 
@@ -111,7 +109,7 @@ The[ REST API offered by Eclipse Ditto](https://www.eclipse.org/ditto/http-api-d
 The [Vorto Repository] allows the persistance, publication and re-using of existing models that describe hardware components.
 #### Performance
 
-##### Time Behavior
+##### Real-Time Behavior
 
 ##### Functional Suitability
 
