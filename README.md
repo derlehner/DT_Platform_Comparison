@@ -74,8 +74,6 @@ For the Eclipse platform, we analyzed the Hono, Ditto and Vorto tools that all c
 Main functionality of Ditto is to provide a RESTful Interface to enable platform interopability. Therefore, this requirement is fulfilled by this platform.
 ##### System Interoperability 
 In the officiall documentation of the structure that is used behind the platform, there is no support for interaction between different Digital Twins. However, this could still be implemented, as Hono offers different. For the authors, this leads to the conclusion that system interopability is partially fulfilled by the platform.
-##### Real-Time Busses 
-As to the best of our knowledge, there is no support for real-time busses in the examined Eclipse tools.
 
 ##### Automation Protocols
 Based on the Eclipse Hono Website, there is a out of the box support for the following protocols to send data from a device to the platform:
@@ -110,6 +108,7 @@ The [Vorto Repository] allows the persistance, publication and re-using of exist
 #### Performance
 
 ##### Real-Time Behavior
+via MQTT https://www.eclipse.org/hono/docs/user-guide/mqtt-adapter/ and AMQP https://www.eclipse.org/hono/docs/user-guide/amqp-adapter/ adapters
 
 ##### Functional Suitability
 
