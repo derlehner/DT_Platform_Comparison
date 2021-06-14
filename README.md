@@ -13,8 +13,6 @@ From the Microsoft Azure, we considered the Azure Digital Twins Service, the Azu
 The Azure DT Platform offers a REST-Interface
 ##### System Interoperability 
 Enabled via the IoT-Hub, and specified via so-called Relationships between different Digital Twins
-##### Real-Time Busses 
-As to the best of our knowledge, there is no support for real-time busses in Azure.
 
 ##### Automation Protocols
 Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-protocols), the Azure IoT-Hub currently supports the following communication protocols:
@@ -26,7 +24,10 @@ Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot
 Authorization via [Azure Active Directory](https://azure.microsoft.com/de-de/services/active-directory/)
 https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security for Devices and https://docs.microsoft.com/en-us/azure/digital-twins/concepts-security for Azure DT
 #### Data Security
-Authorization via [Azure Active Directory](https://azure.microsoft.com/de-de/services/active-directory/)
+Send data to platform: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/iot-hub-security-baseline
+Transporting data within platform (event hubs): https://techcommunity.microsoft.com/t5/messaging-on-azure/data-encryption-with-customer-managed-keys-for-azure-event-hubs/ba-p/839122
+Stored data (in ADT and TSI): https://docs.microsoft.com/en-us/azure/digital-twins/concepts-security#encryption-of-data-at-rest and azure data store used by TSI: https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption
+
 
 #### Portability
 
@@ -43,7 +44,8 @@ As the Digital Twin Definition Language (DTDL) used by Microsoft Azure Digital T
 
 #### Performance
 
-##### Time Behavior
+##### Real-Time Behavior
+https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot
 
 ##### Functional Suitability
 
@@ -72,8 +74,6 @@ For the Eclipse platform, we analyzed the Hono, Ditto and Vorto tools that all c
 Main functionality of Ditto is to provide a RESTful Interface to enable platform interopability. Therefore, this requirement is fulfilled by this platform.
 ##### System Interoperability 
 In the officiall documentation of the structure that is used behind the platform, there is no support for interaction between different Digital Twins. However, this could still be implemented, as Hono offers different. For the authors, this leads to the conclusion that system interopability is partially fulfilled by the platform.
-##### Real-Time Busses 
-As to the best of our knowledge, there is no support for real-time busses in the examined Eclipse tools.
 
 ##### Automation Protocols
 Based on the Eclipse Hono Website, there is a out of the box support for the following protocols to send data from a device to the platform:
@@ -91,6 +91,9 @@ Ditto: via Authentication/Authorization https://www.eclipse.org/ditto/basic-auth
 
 #### Data Security
 
+Sending data to platform: https://www.eclipse.org/hono/docs/admin-guide/secure_communication/ 
+Storing data in platform: https://www.eclipse.org/ditto/connectivity-tls-certificates.html
+
 #### Portability
 
 ##### CI/CD
@@ -104,7 +107,8 @@ The[ REST API offered by Eclipse Ditto](https://www.eclipse.org/ditto/http-api-d
 The [Vorto Repository] allows the persistance, publication and re-using of existing models that describe hardware components.
 #### Performance
 
-##### Time Behavior
+##### Real-Time Behavior
+via MQTT https://www.eclipse.org/hono/docs/user-guide/mqtt-adapter/ and AMQP https://www.eclipse.org/hono/docs/user-guide/amqp-adapter/ adapters
 
 ##### Functional Suitability
 
