@@ -21,6 +21,12 @@ Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot
 - MQTT
 - AMQP
 - HTTPS
+### Security
+#### Connection Security
+Authorization via [Azure Active Directory](https://azure.microsoft.com/de-de/services/active-directory/)
+https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security for Devices and https://docs.microsoft.com/en-us/azure/digital-twins/concepts-security for Azure DT
+#### Data Security
+Authorization via [Azure Active Directory](https://azure.microsoft.com/de-de/services/active-directory/)
 
 #### Portability
 
@@ -53,7 +59,7 @@ As the Digital Twin Definition Language (DTDL) used by Microsoft Azure Digital T
 
 #### Usability
 
-##### Modeling Support 
+##### Language Support 
 Both Azure and Eclipse Vorto provide a structured meta-model (DTDL\footnote{\url{https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md}} and vortolang\footnote{\url{https://github.com/eclipse/vorto/blob/development/docs/vortolang-1.0.md}} that can be instantiated with specific DT models using json. Both also provide modeling tools (ADT-Explorer\footnote{\url{https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer}} and Vorto Repository\footnote{\url{https://vorto.eclipseprojects.io/}}
 
 ##### Visualization of DTs
@@ -75,6 +81,15 @@ Based on the Eclipse Hono Website, there is a out of the box support for the fol
 - AMQP
 - MQTT
 - CoAP
+
+### Security
+#### Connection Security
+
+Hono: https://www.eclipse.org/hono/docs/architecture/auth/
+Eclipse: via Accounts in Vorto Repository
+Ditto: via Authentication/Authorization https://www.eclipse.org/ditto/basic-auth.html#authentication and Access Rights via Policy Concept: https://www.eclipse.org/ditto/basic-policy.html#model-specification
+
+#### Data Security
 
 #### Portability
 
@@ -118,6 +133,11 @@ Since communication in AWS IoT Greengrass is mostly handled via MQTT it is possi
 ##### Real-Time Busses 
 
 ##### Automation Protocols 
+
+### Security
+#### Connection Security
+
+#### Data Security
 
 #### Portability
 
