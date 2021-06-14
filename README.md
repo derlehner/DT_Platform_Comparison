@@ -26,7 +26,10 @@ Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot
 Authorization via [Azure Active Directory](https://azure.microsoft.com/de-de/services/active-directory/)
 https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security for Devices and https://docs.microsoft.com/en-us/azure/digital-twins/concepts-security for Azure DT
 #### Data Security
-Authorization via [Azure Active Directory](https://azure.microsoft.com/de-de/services/active-directory/)
+Send data to platform: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/iot-hub-security-baseline
+Transporting data within platform (event hubs): https://techcommunity.microsoft.com/t5/messaging-on-azure/data-encryption-with-customer-managed-keys-for-azure-event-hubs/ba-p/839122
+Stored data (in ADT and TSI): https://docs.microsoft.com/en-us/azure/digital-twins/concepts-security#encryption-of-data-at-rest and azure data store used by TSI: https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption
+
 
 #### Portability
 
@@ -44,6 +47,7 @@ As the Digital Twin Definition Language (DTDL) used by Microsoft Azure Digital T
 #### Performance
 
 ##### Time Behavior
+
 
 ##### Functional Suitability
 
@@ -90,6 +94,9 @@ Eclipse: via Accounts in Vorto Repository
 Ditto: via Authentication/Authorization https://www.eclipse.org/ditto/basic-auth.html#authentication and Access Rights via Policy Concept: https://www.eclipse.org/ditto/basic-policy.html#model-specification
 
 #### Data Security
+
+Sending data to platform: https://www.eclipse.org/hono/docs/admin-guide/secure_communication/ 
+Storing data in platform: https://www.eclipse.org/ditto/connectivity-tls-certificates.html
 
 #### Portability
 
