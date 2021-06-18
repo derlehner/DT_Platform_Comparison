@@ -7,7 +7,7 @@ From Microsoft Azure, we considered the [Azure Digital Twins (ADT) Service](http
 #### Compatibility
 
 ##### Platform Interoperability 
-The Azure DT Platform offers a [REST-Interface](https://docs.microsoft.com/en-us/rest/api/azure-digitaltwins/) that allows both the retrieving of data/structural information, and communicating with a DT (i.e. sending data, or updating its structure).
+The Azure DT Platform offers a [REST-Interface](https://docs.microsoft.com/en-us/rest/api/azure-digitaltwins/) that allows both the retrieving of data/structural information, and communicating with a DT (i.e. sending data, or updating its structure). As a result, this requirement is fully fulfilled.
 ##### System Interoperability 
 This requirement is partially fulfilled, as the modeling of relationships in the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) used by the ADT service, but there is no dedicated support for implementing connections between physical devices based on these modeled relationships.
 
@@ -16,7 +16,7 @@ Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot
 - MQTT
 - AMQP
 - HTTPS
-This means that none of the defined automation protocols is supported.
+This means that none of the defined automation protocols is supported, resulting in the requirement Automation Protocols being not fulfilled.
 ### Security
 Data security is provided for all considered tools.
 - For sending data to the platform: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/iot-hub-security-baseline
@@ -30,32 +30,32 @@ More information on connection security is also provided by azure [for device co
 #### Portability
 
 ##### Continuous Integration & Continuous Development (CI/CD)
-The Azure [DevOps Services](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) provide dedicated CI/CD support via so-called [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/). There is also [documentation](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/apps/devops-dotnet-webapp) provided on how to use this tooling.
+The Azure [DevOps Services](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) provide dedicated CI/CD support via so-called [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/). There is also [documentation](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/apps/devops-dotnet-webapp) provided on how to use this tooling. as a result, this requirement is fulfilled.
 
+##### Portability
+As all investigated tools are cloud-native in nature, but there is also an option for standalone deployment, this requirement is fulfilled.
 #### Maintainability
 
 ##### Modifiability 
-The REST API provided by the ADT service [offers operations that allow to change DTs and their properties](https://docs.microsoft.com/en-us/rest/api/digital-twins/controlplane/endpoints), also during runtime of the actual system.
+The REST API provided by the ADT service [offers operations that allow to change DTs and their properties](https://docs.microsoft.com/en-us/rest/api/digital-twins/controlplane/endpoints), also during runtime of the actual system. Therefore, this requirement is fulfilled.
 
 ##### Reusability
-As the Digital Twin Definition Language (DTDL) used by Microsoft Azure Digital Twins to describe components is [JSON-LD-based](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-models), this allows easy reusability using copy and paste of json properties.
+As the Digital Twin Definition Language (DTDL) used by Microsoft Azure Digital Twins to describe components is [JSON-LD-based](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-models), this allows easy reusability using copy and paste of json properties. As this is also possible between projects, this requirement is fulfilled.
 
 #### Performance
 
 ##### Real-Time Behavior
-There is some information on how data can be transported to the IoT-Hub in real-time https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot. However, current technical limitations do not allow to provide real-time support to the cloud, where the actual DT is running in the ADT service.
+There is some information on how data can be transported to the IoT-Hub in real-time https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot. However, current technical limitations do not allow to provide real-time support to the cloud, where the actual DT is running in the ADT service. Therefore, this requirement is partially fulfilled.
 
-##### Functional Suitability
-
-#### Compatibility
-
-##### Platform Interoperability 
+#### Functional Suitability
 
 ##### Bi-Directional Synchronization 
+The bi-directional synchronization can be achieved via the IoT-Hub. However, our experiments showed that for actually implementing this, limited support is provided, because the code for synchronization must be created manually. Thus, this requirement is partially fulfilled.
 
 ##### Verify & Validate
-
+Our experiments showed that the ADT service automatically detects invalid structures during runtime, but to the best of our knowledge, there is no support by the Azure platform to run test cases before the deployment of a DT. As a result, this requirements is partially fulfilled.
 ##### Convergence
+As to the best ouf our knowledge, there is yet no dedicated support by the Azure platform for Convergence. Therefore, this requirement is not fulfilled.
 
 #### Usability
 
@@ -63,13 +63,13 @@ There is some information on how data can be transported to the IoT-Hub in real-
 The [Digital Twin Definition Language(DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) is a dedicated language offered by Microsoft to model Digital Twins in the ADT service. A graphical interface for this language is provided by the [ADT-Explorer](https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer)
 
 ### Eclipse 
-For the Eclipse platform, we analyzed the Hono, Ditto and Vorto tools that all claim to provide solutions to cope with Digital Twins.
+For the Eclipse platform, we analyzed the [Hono](https://www.eclipse.org/hono), [Ditto](https://www.eclipse.org/ditto/) and [Vorto](https://www.eclipse.org/vorto/) tools that all claim to provide solutions to cope with Digital Twins, and for which there is also an [integration example for a specific use case](https://blog.bosch-si.com/developer/harmonizing-specific-device-payloads-using-eclipse-vorto/) provided by eclipse.
 #### Compatibility
 
 ##### Platform Interoperability 
-Main functionality of Ditto is to provide a RESTful Interface to enable platform interopability. Therefore, this requirement is fulfilled by this platform.
+The main functionality of Ditto is to provide a [RESTful Interface to enable platform interopability](https://www.eclipse.org/ditto/http-api-doc.html).  Therefore, this requirement is fulfilled by this platform.
 ##### System Interoperability 
-In the officiall documentation of the structure that is used behind the platform, there is no support for interaction between different Digital Twins. However, this could still be implemented, as Hono offers different. For the authors, this leads to the conclusion that system interopability is partially fulfilled by the platform.
+In the [officiall documentation of the structure that is used behind the platform](https://github.com/eclipse/vorto/blob/development/docs/vortolang-1.0.md), there is no support for interaction between different Digital Twins. Therefore, System Interopability is not fulfilled by this platform.
 
 ##### Automation Protocols
 Based on the Eclipse Hono Website, there is a out of the box support for the following protocols to send data from a device to the platform:
@@ -78,48 +78,51 @@ Based on the Eclipse Hono Website, there is a out of the box support for the fol
 - MQTT
 - CoAP
 
+This means that none of the defined automation protocols is supported, resulting in the requirement Automation Protocols being not fulfilled.
 ### Security
-#### Connection Security
+Connection Security is enabled in
+-  Hono: https://www.eclipse.org/hono/docs/architecture/auth/
+- Vorto: via Accounts in [Vorto Repository](https://vorto.eclipseprojects.io/)
+- Ditto: via Authentication/Authorization https://www.eclipse.org/ditto/basic-auth.html#authentication and Access Rights via Policy Concept: https://www.eclipse.org/ditto/basic-policy.html#model-specification
 
-Hono: https://www.eclipse.org/hono/docs/architecture/auth/
-Eclipse: via Accounts in Vorto Repository
-Ditto: via Authentication/Authorization https://www.eclipse.org/ditto/basic-auth.html#authentication and Access Rights via Policy Concept: https://www.eclipse.org/ditto/basic-policy.html#model-specification
+Data Security is enabled for
+- Sending data to platform: https://www.eclipse.org/hono/docs/admin-guide/secure_communication/ 
+- Storing data in platform: https://www.eclipse.org/ditto/connectivity-tls-certificates.html
 
-#### Data Security
-
-Sending data to platform: https://www.eclipse.org/hono/docs/admin-guide/secure_communication/ 
-Storing data in platform: https://www.eclipse.org/ditto/connectivity-tls-certificates.html
+Therefore, Security is fulfilled by this platform.
 
 #### Portability
 
-##### CI/CD
-As to the best of our knowledge, there is no out of the box support for CI or CD by Eclipse Hono, Ditto or Vorto.
+##### Continuous Integration & Continuous Development (CI/CD)
+As to the best of our knowledge, there is no out of the box support for CI or CD by Eclipse Hono, Ditto or Vorto. As a result, this requirement is not fulfilled.
+##### Provisioning
+This requirement is partly fulfilled, as the individual tools can be hosted on-premise, but there is no cloud-native solution for them.
 
 #### Maintainability
 
 ##### Modifiability 
-The[ REST API offered by Eclipse Ditto](https://www.eclipse.org/ditto/http-api-doc.html) allows the modification of the system and its components during runtime.
+The [REST API offered by Eclipse Ditto](https://www.eclipse.org/ditto/http-api-doc.html) allows the modification of the system and its components during runtime, via dedicated POST/PUT/DELETE operations for the individual components of a Digital Twin. As a result, this requirement is fully fulfilled.
 ##### Reusability
-The [Vorto Repository] allows the persistance, publication and re-using of existing models that describe hardware components.
+The [Vorto Repository] allows the persistance, publication and re-using of existing models that describe hardware components. As this re-usability is also possible across projects, this requirement is fulfilled.
 #### Performance
 
 ##### Real-Time Behavior
-via MQTT https://www.eclipse.org/hono/docs/user-guide/mqtt-adapter/ and AMQP https://www.eclipse.org/hono/docs/user-guide/amqp-adapter/ adapters
+Real-Time behavior can be achieved on the edge via an MQTT https://www.eclipse.org/hono/docs/user-guide/mqtt-adapter/ or AMQP https://www.eclipse.org/hono/docs/user-guide/amqp-adapter/ adapter. However, current technical limitations do not allow real-time behavior over the cloud. Therefore, this requirement is partially fulfilled.
 
-##### Functional Suitability
-
-#### Compatibility
+#### Functional Suitability
 
 ##### Bi-Directional Synchronization 
+The bi-directional synchronization can be achieved via Eclipse HOno. However, our experiments showed that for actually implementing this, limited support is provided, because the code for synchronization must be created manually.
 
 ##### Verify & Validate
-
+Our experiments showed that the Eclipse platform does not detect invalid structures during runtime, and to the best of our knowledge, there is no support by the Eclipse platform to run test cases before the deployment of a DT. As a result, this requirements is not fulfilled.
 ##### Convergence
-
+As to the best ouf our knowledge, there is yet no dedicated support by any of the investigated tools for Convergence. Therefore, this requirement is not fulfilled.
 #### Usability
 
 ##### Language Support 
-Azure and Eclipse Vorto provide a structured meta-model (DTDL\footnote{\url{}} and vortolang\footnote{\url{https://github.com/eclipse/vorto/blob/development/docs/vortolang-1.0.md}} that can be instantiated with specific DT models using json. Both also provide modeling tools (ADT-Explorer\footnote{\url{}} and Vorto Repository\footnote{\url{https://vorto.eclipseprojects.io/}}
+The [Vortolang](https://github.com/eclipse/vorto/blob/development/docs/vortolang-1.0.md) is a dedicated language offered by Eclipse Vorto to model Digital Twins in the ADT service. A graphical interface for this language is provided by the [Vorto Repository](https://vorto.eclipseprojects.io)
+Therefore, this requirement is fulfilled.
 
 ### Amazon Greengrass
 
@@ -151,7 +154,7 @@ Consequently, we consider the security requirement as fulfilled by AWS.
 
 #### Portability
 
-##### CI/CD
+##### Continuous Integration & Continuous Development (CI/CD)
 
 AWS offers full [CI/CD](https://aws.amazon.com/de/blogs/iot/implementing-a-ci-cd-pipeline-for-aws-iot-greengrass-projects/) support. For instance, a developer could push code to an AWS git repository, this triggers the AWS CodePipeline, that uses AWS CodeBuild. CodeBuild could perform the following tasks:
 
