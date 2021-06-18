@@ -3,38 +3,39 @@
 ## Evaluation
 
 ### Microsoft Azure
-From Microsoft Azure, we considered the [Azure Digital Twins Service](https://azure.microsoft.com/services/digital-twins/) as main component of the provided DT platform. Based on the documentation of this service, it is recommended to use [Azure IoT-Hub](https://azure.microsoft.com/services/iot-hub/)  [to send data from devices](https://docs.microsoft.com/en-us/azure/digital-twins/tutorial-end-to-end), and connect the Azure Digital Twins Service to the [Azure Time Series Insights Service](https://azure.microsoft.com/services/time-series-insights/) for [analysis of historical data](https://docs.microsoft.com/en-us/azure/time-series-insights/tutorials-model-sync). Therefore, we also integrated these two services into our comparison for Azure.
+From Microsoft Azure, we considered the [Azure Digital Twins (ADT) Service](https://azure.microsoft.com/services/digital-twins/) as main component of the provided DT platform. Based on the documentation of this service, it is recommended to use [Azure IoT-Hub](https://azure.microsoft.com/services/iot-hub/)  [to send data from devices](https://docs.microsoft.com/en-us/azure/digital-twins/tutorial-end-to-end), and connect the Azure Digital Twins Service to the [Azure Time Series Insights Service](https://azure.microsoft.com/services/time-series-insights/) for [analysis of historical data](https://docs.microsoft.com/en-us/azure/time-series-insights/tutorials-model-sync). Therefore, we also integrated these two services into our comparison for Azure.
 #### Compatibility
 
 ##### Platform Interoperability 
-The Azure DT Platform offers a REST-Interface
+The Azure DT Platform offers a [REST-Interface](https://docs.microsoft.com/en-us/rest/api/azure-digitaltwins/) that allows both the retrieving of data/structural information, and communicating with a DT (i.e. sending data, or updating its structure).
 ##### System Interoperability 
-Enabled via the IoT-Hub, and specified via so-called Relationships between different Digital Twins
+This requirement is partially fulfilled, as the modeling of relationships in the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) used by the ADT service, but there is no dedicated support for implementing connections between physical devices based on these modeled relationships.
 
 ##### Automation Protocols
 Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-protocols), the Azure IoT-Hub currently supports the following communication protocols:
 - MQTT
 - AMQP
 - HTTPS
+This means that none of the defined automation protocols is supported.
 ### Security
-#### Connection Security
-Authorization via [Azure Active Directory](https://azure.microsoft.com/de-de/services/active-directory/)
-https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security for Devices and https://docs.microsoft.com/en-us/azure/digital-twins/concepts-security for Azure DT
-#### Data Security
-Send data to platform: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/iot-hub-security-baseline
-Transporting data within platform (event hubs): https://techcommunity.microsoft.com/t5/messaging-on-azure/data-encryption-with-customer-managed-keys-for-azure-event-hubs/ba-p/839122
-Stored data (in ADT and TSI): https://docs.microsoft.com/en-us/azure/digital-twins/concepts-security#encryption-of-data-at-rest and azure data store used by TSI: https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption
+Data security is provided for all considered tools.
+- For sending data to the platform: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/iot-hub-security-baseline
+- For transporting data within platforms (via event hubs): https://techcommunity.microsoft.com/t5/messaging-on-azure/data-encryption-with-customer-managed-keys-for-azure-event-hubs/ba-p/839122
+- For data stored in the ADT service: https://docs.microsoft.com/en-us/azure/digital-twins/concepts-security#encryption-of-data-at-rest
+- For the azure data store used by Time Series Insights: https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption
+Connection security is provided for all considered tools via the [Azure Active Directory](https://azure.microsoft.com/de-de/services/active-directory/).
+More information on connection security is also provided by azure [for device communication with IoT-Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security) and for the [ADT-service](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-security)
 
 
 #### Portability
 
-##### CI/CD
-
-As to the best of our knowledge, there is yet no support for either CI or CD by any of the components of the azure digital twin platform.
+##### Continuous Integration & Continuous Development (CI/CD)
+The Azure [DevOps Services](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) provide dedicated CI/CD support via so-called [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/). There is also [documentation](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/apps/devops-dotnet-webapp) provided on how to use this tooling.
 
 #### Maintainability
 
 ##### Modifiability 
+The REST API provided by the ADT service [offers operations that allow to change DTs and their properties](https://docs.microsoft.com/en-us/rest/api/digital-twins/controlplane/endpoints), also during runtime of the actual system.
 
 ##### Reusability
 As the Digital Twin Definition Language (DTDL) used by Microsoft Azure Digital Twins to describe components is [JSON-LD-based](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-models), this allows easy reusability using copy and paste of json properties.
@@ -42,7 +43,7 @@ As the Digital Twin Definition Language (DTDL) used by Microsoft Azure Digital T
 #### Performance
 
 ##### Real-Time Behavior
-https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot
+There is some information on how data can be transported to the IoT-Hub in real-time https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot. However, current technical limitations do not allow to provide real-time support to the cloud, where the actual DT is running in the ADT service.
 
 ##### Functional Suitability
 
@@ -59,10 +60,8 @@ https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/realti
 #### Usability
 
 ##### Language Support 
-Both Azure and Eclipse Vorto provide a structured meta-model (DTDL\footnote{\url{https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md}} and vortolang\footnote{\url{https://github.com/eclipse/vorto/blob/development/docs/vortolang-1.0.md}} that can be instantiated with specific DT models using json. Both also provide modeling tools (ADT-Explorer\footnote{\url{https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer}} and Vorto Repository\footnote{\url{https://vorto.eclipseprojects.io/}}
+The [Digital Twin Definition Language(DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) is a dedicated language offered by Microsoft to model Digital Twins in the ADT service. A graphical interface for this language is provided by the [ADT-Explorer](https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer)
 
-##### Visualization of DTs
-https://github.com/eclipse/vorto/blob/master/docs/tutorials/create_webapp_dashboard.md
 ### Eclipse 
 For the Eclipse platform, we analyzed the Hono, Ditto and Vorto tools that all claim to provide solutions to cope with Digital Twins.
 #### Compatibility
@@ -119,7 +118,8 @@ via MQTT https://www.eclipse.org/hono/docs/user-guide/mqtt-adapter/ and AMQP htt
 
 #### Usability
 
-##### Modeling Support 
+##### Language Support 
+Azure and Eclipse Vorto provide a structured meta-model (DTDL\footnote{\url{}} and vortolang\footnote{\url{https://github.com/eclipse/vorto/blob/development/docs/vortolang-1.0.md}} that can be instantiated with specific DT models using json. Both also provide modeling tools (ADT-Explorer\footnote{\url{}} and Vorto Repository\footnote{\url{https://vorto.eclipseprojects.io/}}
 
 ### Amazon Greengrass
 
