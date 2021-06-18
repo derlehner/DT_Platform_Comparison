@@ -1,12 +1,9 @@
-# Our Title here
-
-## Discussion Points
-- Welche Hierarchien haben wir? Sollen wir nach Requirements oder nach Plattformen strukturieren?
+# Digital Twin Platforms: Current Capabilities andFuture Prospects
 
 ## Evaluation
 
 ### Microsoft Azure
-From the Microsoft Azure, we considered the Azure Digital Twins Service, the Azure IoT-Hub, and the Azure Time Series Insights Service.
+From Microsoft Azure, we considered the [Azure Digital Twins Service](https://azure.microsoft.com/services/digital-twins/) as main component of the provided DT platform. Based on the documentation of this service, it is recommended to use [Azure IoT-Hub](https://azure.microsoft.com/services/iot-hub/)  [to send data from devices](https://docs.microsoft.com/en-us/azure/digital-twins/tutorial-end-to-end), and connect the Azure Digital Twins Service to the [Azure Time Series Insights Service](https://azure.microsoft.com/services/time-series-insights/) for [analysis of historical data](https://docs.microsoft.com/en-us/azure/time-series-insights/tutorials-model-sync). Therefore, we also integrated these two services into our comparison for Azure.
 #### Compatibility
 
 ##### Platform Interoperability 
