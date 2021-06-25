@@ -16,6 +16,7 @@ Based on the official [documentation](https://docs.microsoft.com/en-us/azure/iot
 - MQTT
 - AMQP
 - HTTPS
+- 
 This means that none of the defined automation protocols is supported, resulting in the requirement Automation Protocols being not fulfilled.
 ### Security
 Data security is provided for all considered tools.
