@@ -1,4 +1,4 @@
-# Digital Twin Platforms: Current Capabilities andFuture Prospects
+# Digital Twin Platforms: Current Capabilities and Future Prospects
 
 ## Evaluation
 
