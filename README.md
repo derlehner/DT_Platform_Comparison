@@ -1,5 +1,14 @@
 # Digital Twin Platforms: Current Capabilities and Future Prospects
 
+On this repository, we provide a framework for evaluating DT platforms. We give a first evaluation of three particular platforms, and provide the detailed results below. A summary of the results is given in [the following file](./Results_DT_Platform_Comparison.xlsx). We encourage the community to extend this evaluation by providing pull requests to this repository.
+We are specifically looking for two kinds of extensions:
+- horizontally: by evaluating further platforms. To add an evaluation for an additional platform to the current repository, the following information must be provided:
+  - A summary for each requirement whether this requirement is fulfilled, partially fulfilled, or not fulfilled for the given platform. This information has to be entered in the [results file](./Results_DT_Platform_Comparison.xlsx).
+  - A detailed description that explains for each requirement why this requirement is fulfilled, partially fulfilled, or not fulfilled for the given platform. This information has to be entered in the current readme.md file.
+- vertically: by proposing additional requirements for such DT platforms. To propose a new requirement, [the results file](./Results_DT_Platform_Comparison.xlsx) has to be extended with the following information
+  - a name of the requirement
+  - Evaluation criteria: a detailed description that indicates whether this requirement is fulfilled, partially fulfilled, or not fulfilled, for a particular DT platform,
+
 ## Evaluation
 
 ### Microsoft Azure
